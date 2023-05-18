@@ -53,6 +53,15 @@ palavras = 'Julian'.upper()
 
 
 while acertos != len(palavras) and erros != 5:
+    letra = input("Digite uma letra: ").upper() # o upper serve pra deixar a letra em caixa alta independente de como o usuário digitar
+    if letra in palavras:
+        print("Você acertou!")
+        letras_acertadas += letra # mantém as a letras certas adicionadas no laço de repetição anterior
+        acertos += 1
+    else:
+        print("Você errou!")
+        letras_erradas += letra
+        erros += 1
     msg = ''
     for letra in palavras:
         if letra in letras_acertadas:
@@ -62,19 +71,6 @@ while acertos != len(palavras) and erros != 5:
     chances = [vazio, cabeca, tronco, b_direito, b_esquerdo, p_direita, p_esquerda]
     print(forca + chances[erros])
     print(msg)
-
-    print(f'Você já acertou: ' + letras_acertadas) # junta as letras acertadas
-
-    letra = input("Digite uma letra: ").upper() # o upper serve pra deixar a letra em caixa alta independente de como o usuário digitar
-    if letra in palavras:
-        print("Você acertou!")
-        letras_acertadas += letra # mantém as a letras certas adicionadas no laço de repetição anterior
-        acertos += 1
-    else:
-        print("Você errou!")
-        letras_erradas += letra
-        acertos += 1
-
-
+    print(f'Você já acertou: ' + letras_acertadas)  # junta as letras acertadas
 
 '''print(f"A palavra era: {palavras}")'''
