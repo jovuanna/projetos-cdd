@@ -2,7 +2,7 @@ def intro(jogo):
     print('---------------------------')
     print(' '*6, jogo, ' '*6)
     print('---------------------------')
-
+import random
 
 forca = '''
 _____
@@ -47,14 +47,16 @@ erros = 0
 letras_acertadas = ''
 letras_erradas = ''
 
-# sorteio = random.choices(palavras) #sorteia um elemento da lista
-palavras = 'Julian'.upper()
+lista = ['julian', 'robert', 'jullia', 'gaiman', 'giseli', 'thiago', 'vanete', 'heitor', 'python', 'shadow']
+palavras = [lista.upper()
+            for lista in lista]
 
+sorteio = random.choices(palavras) #sorteia um elemento da lista
+print(sorteio)
 
-
-while acertos != len(palavras) and erros != 5:
+while acertos != len(sorteio) and erros != 5:
     letra = input("Digite uma letra: ").upper() # o upper serve pra deixar a letra em caixa alta independente de como o usuário digitar
-    if letra in palavras:
+    if letra in sorteio:
         print("Você acertou!")
         letras_acertadas += letra # mantém as a letras certas adicionadas no laço de repetição anterior
         acertos += 1
@@ -63,7 +65,7 @@ while acertos != len(palavras) and erros != 5:
         letras_erradas += letra
         erros += 1
     msg = ''
-    for letra in palavras:
+    for letra in sorteio:
         if letra in letras_acertadas:
             msg += letra + ' '  # mostra a letra no lugar + um espaco
         else:
@@ -73,4 +75,4 @@ while acertos != len(palavras) and erros != 5:
     print(msg)
     print(f'Você já acertou: ' + letras_acertadas)  # junta as letras acertadas
 
-'''print(f"A palavra era: {palavras}")'''
+print(f"A palavra era: {sorteio}")
