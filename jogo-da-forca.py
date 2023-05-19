@@ -2,6 +2,10 @@ def intro(jogo):
     print('---------------------------')
     print(' '*6, jogo, ' '*6)
     print('---------------------------')
+'''with open('palavras.txt') as arquivo:
+    linhas = arquivo.read()
+    print(linhas)
+    lista_de_palavras = linhas.split('\n')'''
 import random
 
 forca = '''
@@ -38,9 +42,6 @@ p_esquerda = '''
 '''
 intro("Jogo da forca")
 
-
-#print(forca+tronco)
-
 acertos = 0
 erros = 0
 
@@ -51,8 +52,7 @@ lista = ['julian', 'robert', 'jullia', 'gaiman', 'giseli', 'thiago', 'vanete', '
 palavras = [lista.upper()
             for lista in lista]
 
-sorteio = random.choices(palavras) #sorteia um elemento da lista
-print(sorteio)
+sorteio = random.choice(palavras) #sorteia um elemento da lista (choice: sorteia um elemento da lista, choices: sorteia vários)
 
 while acertos != len(sorteio) and erros != 5:
     letra = input("Digite uma letra: ").upper() # o upper serve pra deixar a letra em caixa alta independente de como o usuário digitar
@@ -69,7 +69,7 @@ while acertos != len(sorteio) and erros != 5:
         if letra in letras_acertadas:
             msg += letra + ' '  # mostra a letra no lugar + um espaco
         else:
-            msg += '_'  # mostra que não tem nenhuma letra acertada ainda naquela posição
+            msg += '_'  # mostra que não tem nenhuma letra certa ainda naquela posição
     chances = [vazio, cabeca, tronco, b_direito, b_esquerdo, p_direita, p_esquerda]
     print(forca + chances[erros])
     print(msg)
