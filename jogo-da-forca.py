@@ -49,8 +49,7 @@ letras_acertadas = ''
 letras_erradas = ''
 
 lista = ['julian', 'robert', 'jullia', 'gaiman', 'giseli', 'thiago', 'vanete', 'heitor', 'python', 'shadow']
-palavras = [lista.upper()
-            for lista in lista]
+palavras = [lista.upper() for lista in lista]
 
 sorteio = random.choice(palavras) #sorteia um elemento da lista (choice: sorteia um elemento da lista, choices: sorteia vários)
 
